@@ -1,0 +1,136 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    margin:auto; 
+}
+
+
+
+#header {
+    background-color: LightSkyBlue;
+    text-align: center;
+}
+
+#header h1{
+    font-family: Verdana;
+    color: SteelBlue;
+    padding-bottom: 10px;
+}
+
+#content {
+    padding-top: 15px;
+    padding-left: 40px;
+    width: 1200px;
+    margin: auto;
+    font-family: Verdana;
+}
+
+#content h1{
+    font-family: Verdana;
+    color: SteelBlue;
+    padding-bottom: 10px;
+}
+
+
+#content h4{
+    font-family: Verdana;
+    color: SteelBlue;
+    padding-bottom: 10px;
+}
+
+#logout_button{
+    font-family:Verdana;
+    font-weight: bold;
+    height: 40px;
+    color: SteelBlue;
+    background: AliceBlue; /* Set button background */  
+    border: 1px solid LightSkyBlue; /* Small border around our submit button */  
+    margin: 2px;
+    margin-right:25px;
+    padding: 8px; /* Add some more space around our button text */  
+}  
+
+#nav {
+    background-color:SteelBlue;
+    height: 44px;
+}
+
+#nav ul{
+    list-style-type: none;
+    text-align:center;
+    padding-top:10px;
+}
+
+#nav ul li {
+    color: AliceBlue;
+    font-size:20px;
+    margin-right: 20px;
+    font-weight: bold;
+    display: inline;
+}
+#nav ul li a {
+    color: AliceBlue;
+}
+#logout {
+    float:right;
+    text-align: center;
+    display: inline;
+}
+
+
+.ui-accordion-header { 
+    background: AliceBlue;
+    color: SteelBlue;
+}  
+
+#wrap{  
+    background: #FFFFFF; /* Set content background to white */  
+    width: 615px; /* Set the width of our content area */  
+    margin: 0 auto; /* Center our content in our browser */  
+    margin-top: 50px; /* Margin top to make some space between the header and the content */  
+    padding: 10px; /* Padding to make some more space for our text */  
+    border: 1px solid #DFDFDF; /* Small border for the finishing touch */  
+    text-align: center; /* Center our content text */  
+}  
+  
+#wrap h3{  
+    font: italic 22px Georgia; /* Set font for our heading 2 that will be displayed in our wrap */  
+}  
+  
+/* Form & Input field styles */   
+  
+.user {  
+    margin-top: 10px; /* Make some more distance away from the description text */  
+}  
+  
+.user .submit_button{  
+    background: #F9F9F9; /* Set button background */  
+    border: 1px solid #DFDFDF; /* Small border around our submit button */  
+    padding: 8px; /* Add some more space around our button text */  
+}  
+
+
+.user input{  
+    font: normal 16px Georgia; /* Set font for our input fields */  
+    border: 1px solid #DFDFDF; /* Small border around our input field */  
+    padding: 8px; /* Add some more space around our text */  
+}  
+
+#logout {
+    font-family: "Trebuchet MS";
+    color: white;
+}
+
+#wrap .statusmsg{  
+    font-size: 12px;
+    padding: 3px; 
+    background: #EDEDED; 
+    border: 1px solid #DFDFDF;  
+}  
