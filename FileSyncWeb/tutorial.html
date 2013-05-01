@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CS283 Cloud-base File Synchronization</title>
+
+    <meta http-equiv='content-type' content='text/html; charset=utf-8'/>
+    <meta http-equiv='charset' content='utf-8'/>
+    <meta name='keywords' content='fileshare,files,transfer,cs283,networks,project'/>
+    <meta name='description' content='Cloud-based file synchronization'/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="cloud.css"/>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $( "#accordion").accordion({
+                heightStyle: "content",
+                collapsible: "true"
+            });
+            
+            $(".accordion .ui-accordion-header").css("background-color","blue");
+        });
+    </script>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='header'>
+            <h1><img src="cloud.png" alt=""></img>-based File Synchronization</h1>
+        </div>
+        
+        <div id="nav">
+            <form id="logout" action="logout.php" method="post">
+                <input type="submit" id="logout_button" value="Logout">
+            </form>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+                
+        <div id='content'>
+            <h1>Tutorial</h1> 
+            <h6>Though our product is remarkably useful, we understand it might take some getting used to. This might help.</h6>
+            <hr>
+            <br></br>
+
+            
+            <h4>Step 1</h4>
+            <p>The first thing you will need to do is set up an EC2 server to run the FileSync Head node. The Ubuntu 12.10 server should work for this. Make sure that ports 22, 80, and 5000 are open on the server and the private key is saved as FileSync.pem</p>
+            <br /><br />
+            <h4>Step 2</h4>
+            <p>There are several files that will need to be modified to run the file synchronization program. client.properties and server.properties must be modified to information specific to your EC2 instance. Links to our client.properties and server.properties can be found in the ClientProperties and ServerProperties java files. After making your changes to these files you will need to host them somewhere (note 1: I recommend Dropbox. note 2: you will have to change the urls in server.properties later) and change the links in ClientProperties.java and ServerProperties.java to the url you hosted them at.</p>
+            <br /><br />
+            <h4>Step 3</h4>
+            <p>The java FileSync program interacts with our web client by inserting a file global url and information into a SQL table every time a file is updated. In order to do this we needed to include a MySql driver in our code which can be found <a href="http://dev.mysql.com/downloads/connector/j/">here</a>. Download this file and place it in your project folder. Then modify the project path to include the jar that is located in the first level of the download folder.</p>
+            <br /><br />
+            <h4>Step 4</h4>
+            <p>You should now be ready to package the project into jar files. Package FileSyncHead, FileSyncClient, and FileSyncServer into runnable jar files. Now host FileSyncServer.jar somewhere. There are three more files that you will need to host. The first of these is your FileSync.pem. The other two can be downloaded from links you will have seen in server.properties. Download setup.sh and local.sh and change the link in setup.sh to point to your FileSyncServer.jar. After hosting all three of these files, change the links within server.properties to point to the correct files.</p>
+            <br /><br />
+            <h4>Step 5</h4>
+            <p>Next place the FileSyncHead.jar onto the server you set up earlier and run it with the command "java -jar FileSyncHead.jar". This will tell the server to listen for connection requests on port 5000.</p>
+            <br /><br />
+            <h4>Step 6</h4>
+            <p>Start your client by opening a terminal and moving to the folder containing your jar files. Run "java -jar FileSyncClient.jar username folder" where username is the email you used to register with this website and folder is the folder you want to be synchronized. The client will contact the head node on your server which will start the process of spawning a new EC2 instance for which to run the client's server.</p>
+            <br /><br />
+            <h4>Step 7</h4>
+            <p>Once the server has been set up, any files added to or modified in your folder will be added to the server and placed in the MySql table for addition to the website. You can now start a new client with the same username and a different folder and the folders will be synced with each other. Any changes made to a file in one of the folders will be made to the file in the other folder. Note that the head node and the server must remain running for this to be possible. As soon as either is closed you will have to start the process over again.</p>
+
+        </div>
+    </div>
+</body>
+</html>

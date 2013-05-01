@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CS283 Cloud-base File Synchronization</title>
+
+    <meta http-equiv='content-type' content='text/html; charset=utf-8'/>
+    <meta http-equiv='charset' content='utf-8'/>
+    <meta name='keywords' content='fileshare,files,transfer,cs283,networks,project'/>
+    <meta name='description' content='Cloud-based file synchronization'/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="cloud.css"/>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='header'>
+            <h1><img src="cloud.png" alt=""></img>-based File Synchronization</h1>
+        </div>
+        
+        <div id="nav">
+            <form id="logout" action="logout.php" method="post">
+                <input type="submit" id="logout_button" value="Logout">
+            </form>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+                
+        <div id='content'>
+            <h1>FAQs</h1> 
+            <h6>Some answers to your frequently asked questions</h6>
+            <hr>
+            <br /><br />
+
+          
+            <h4>I am receiving connection timeout errors when running FileSyncClient.jar</h4>
+            <p>There are several possibilities as to why this might happen. All of them stem from not having the correct information in client.properties, server.properties, ClientProperties.java, ServerProperties.java, or setup.sh. Make sure that all of these files have up to date information and that the jars have been packaged once all information is correct.</p>
+            <br /><br />
+            <h4>I am receiving connection refused errors when running FileSyncClient.jar</h4>
+            <p>You have either not allowed port 5000 on your server or FileSyncHead.jar is not running on the server. Please check that you have both and try again.</p>
+            <br /><br />
+            <h4>There's already a process running on port 5000?</h4>
+            <p>Using the "top" command on your server you can see what processes are running. There should be a java process that pops up every once in a while. Note the process id. Type "kill" and then the process id to kill this process. You should now be able to run FileSyncHead.jar again.</p>
+            <br /><br />
+            <h4>The download links are not working for the files on my home page.</h4>
+            <p>Unfortunately, the download links will only remain active as long as you keep the instance on which they are stored running. We did not provide a way to delete files from the MySql table when an instance in shut down so those old file links will remain on your webpage. If you start a new instance with the same folder, the files should be uploaded onto the new instance and the download link should point to those most recent files.</p>
+          
+
+        </div>
+    </div>
+</body>
+</html>
